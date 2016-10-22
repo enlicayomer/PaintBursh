@@ -71,7 +71,7 @@ public class DrawFrame extends JFrame {
         clear = new JButton("Temizle");
         clear.setIcon(clearico);
 
-        //create comboboxes
+      
         colors = new JComboBox(colorOptions);
         shapes = new JComboBox(shapeOptions);
 
