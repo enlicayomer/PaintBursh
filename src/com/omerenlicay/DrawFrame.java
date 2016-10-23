@@ -23,18 +23,18 @@ import javax.swing.ImageIcon;
  */
 public class DrawFrame extends JFrame {
 
-    private JLabel stausLabel; //label display mouse coordinatess
-    private DrawPanel panel; //draw panel for the shapes
+    private JLabel stausLabel; 
+    private DrawPanel panel; 
 
-    private JButton undo; // button to undo last drawn shape
-    private JButton redo; // button to redo an undo
-    private JButton clear; // button to clear panel
+    private JButton undo; 
+    private JButton redo; 
+    private JButton clear; 
     private JButton rect;
     private JButton oval;
     private JButton line;
     private JComboBox colors; //combobox with color options
 
-    //array of strings containing color options for JComboBox colors
+    
     private String colorOptions[]
             = {"Black", "Blue", "Cyan", "Dark Gray", "Gray", "Green", "Light Gray",
                 "Magenta", "Orange", "Pink", "Red", "White", "Yellow"};
