@@ -28,11 +28,7 @@ abstract class MyShape
         this.color=color;
     }
     
-    //Mutator methods
-   
-    /**
-     * Mutator method for x1
-     */
+ 
     public void setX1(int x1)
     {
         this.x1=x1;
@@ -44,68 +40,49 @@ abstract class MyShape
         this.y1=y1;
     }   
     
-    /**
-     * Mutator method for x2
-     */
+   
     public void setX2(int x2)
     {
         this.x2=x2;
     }   
     
-    /**
-     * Mutator method for y2
-     */
+  
     public void setY2(int y2)
     {
         this.y2=y2;
     }   
-    
-    /**
-     * Mutator method for color
-     */
+  
     public void setColor(Color color)
     {
         this.color=color;
     }
     
     
-    //Accessor methods
-    
-    /**
-     * Accessor method for x1
-     */
+   
     public int getX1()
     {
         return x1;
     }
     
-    /**
-     * Accessor method for y1
-     */
+   
     public int getY1()
     {
         return y1;
     }
     
-    /**
-     * Accessor method for x2
-     */
+    
     public int getX2()
     {
         return x2;
     }
     
-    /**
-     * Accessor method for y2
-     */
+  
     public int getY2()
     {
         return y2;
     }
     
-    /**
-     * Accessor method for color
-     */
+    
     public Color getColor()
     {
         return color;

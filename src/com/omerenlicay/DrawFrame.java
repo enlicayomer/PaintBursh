@@ -32,38 +32,38 @@ public class DrawFrame extends JFrame {
     private JButton rect;
     private JButton oval;
     private JButton line;
-    private JComboBox colors; //combobox with color options
+    private JComboBox colors; 
 
     
     private String colorOptions[]
             = {"Black", "Blue", "Cyan", "Dark Gray", "Gray", "Green", "Light Gray",
                 "Magenta", "Orange", "Pink", "Red", "White", "Yellow"};
 
-    //aray of Color objects contating Color constants
+    
     private Color colorArray[]
             = {Color.BLACK, Color.BLUE, Color.CYAN, Color.darkGray, Color.GRAY,
                 Color.GREEN, Color.lightGray, Color.MAGENTA, Color.ORANGE,
                 Color.PINK, Color.RED, Color.WHITE, Color.YELLOW};
 
-    private JComboBox shapes; //combobox with shape options
+    private JComboBox shapes; 
 
-    //array of strings containing shape options for JComboBox shapes
+   
     private String shapeOptions[]
             = {"Line", "Rectangle", "Oval"};
 
-    private JCheckBox filled; //checkbox to select whether shape is filled or not
+    private JCheckBox filled; 
 
-    private JPanel widgetJPanel; //holds the widgets: buttons, comboboxes and checkbox
-    private JPanel widgetPadder; //encapsulates widgetJPanel and adds padding around the edges 
+    private JPanel widgetJPanel; 
+    private JPanel widgetPadder; 
 
     public DrawFrame() {
-        super("SuperPaint Application v2.0!"); //sets the name of DrawFrame
+        super("SuperPaint Application v2.0!"); 
 
-        JLabel statusLabel = new JLabel(""); //create JLabel object to pass into DrawPanel
+        JLabel statusLabel = new JLabel(""); 
 
-        panel = new DrawPanel(statusLabel); //create draw panel and pass in JLabel
+        panel = new DrawPanel(statusLabel); 
 
-        //create buttons
+       
         Icon left = new ImageIcon(getClass().getResource("left_arrow.png"));
         Icon right = new ImageIcon(getClass().getResource("redo_arrow.png"));
         Icon clearico = new ImageIcon(getClass().getResource("clear.png"));
@@ -78,22 +78,22 @@ public class DrawFrame extends JFrame {
         oval = new JButton("oval");
         line = new JButton("line");
 
-        //create comboboxes
+      
         colors = new JComboBox(colorOptions);
         shapes = new JComboBox(shapeOptions);
 
-        //create checkbox
+      
         filled = new JCheckBox("Filled");
 
-        //JPanel object, widgetJPanel, with grid layout for widgets
+       
         widgetJPanel = new JPanel();
-        widgetJPanel.setLayout(new GridLayout(1, 6, 10, 10)); //sets padding between widgets in gridlayout
+        widgetJPanel.setLayout(new GridLayout(1, 6, 10, 10)); 
 
-        //JPanel object, widgetPadder, with flowlayout to encapsulate and pad the widgetJPanel
+      
         widgetPadder = new JPanel();
-        widgetPadder.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 5)); //sets padding around the edges
+        widgetPadder.setLayout(new FlowLayout(FlowLayout.LEADING, 20, 5)); 
 
-        // add widgets to widgetJPanel
+      
         widgetJPanel.add(undo);
         widgetJPanel.add(redo);
         widgetJPanel.add(clear);
@@ -104,14 +104,14 @@ public class DrawFrame extends JFrame {
         widgetJPanel.add(oval);
         widgetJPanel.add(line);
 
-        // add widgetJPanel to widgetPadder
+       
         widgetPadder.add(widgetJPanel);
 
-        //add widgetPadder and panel to JFrame
+       
         add(widgetPadder, BorderLayout.NORTH);
         add(panel, BorderLayout.CENTER);
 
-        // create new ButtonHandler for button event handling
+        
         ButtonHandler buttonHandler = new ButtonHandler();
         undo.addActionListener(buttonHandler);
         redo.addActionListener(buttonHandler);
@@ -120,7 +120,7 @@ public class DrawFrame extends JFrame {
         oval.addActionListener(buttonHandler);
         line.addActionListener(buttonHandler);
 
-        //create handlers for combobox and checkbox
+       
         ItemListenerHandler handler = new ItemListenerHandler();
         colors.addItemListener(handler);
         shapes.addItemListener(handler);
@@ -130,14 +130,12 @@ public class DrawFrame extends JFrame {
         setSize(980, 600);
         setVisible(true);
 
-    } // end DrawFrame constructor
+    } 
 
-    /**
-     * private inner class for button event handling
-     */
+  
     private class ButtonHandler implements ActionListener {
 
-        // handles button events
+    
         public void actionPerformed(ActionEvent event) {
             if (event.getActionCommand().equals("Geri")) {
                 panel.clearLastShape();
@@ -156,33 +154,31 @@ public class DrawFrame extends JFrame {
 
             }
 
-        } // end method actionPerformed
-    } // end private inner class ButtonHandler
+        } 
+    } 
 
-    /**
-     * private inner class for checkbox and combobox event handling
-     */
+   
     private class ItemListenerHandler implements ItemListener {
 
         public void itemStateChanged(ItemEvent event) {
-            // process filled checkbox events
+            
             if (event.getSource() == filled) {
                 boolean checkFill = filled.isSelected() ? true : false; //
                 panel.setCurrentShapeFilled(checkFill);
             }
 
-            // determine whether combo box selected
+           
             if (event.getStateChange() == ItemEvent.SELECTED) {
-                //if event source is combo box colors pass in colorArray at index selected.
+                
                 if (event.getSource() == colors) {
                     panel.setCurrentShapeColor(colorArray[colors.getSelectedIndex()]);
-                } //else if event source is combo box shapes pass in index selected
+                } 
                 else if (event.getSource() == shapes) {
                     panel.setCurrentShapeType(shapes.getSelectedIndex());
                 }
             }
 
-        } // end method itemStateChanged
+        } 
     }
 
-} // end class DrawFrame
+} 
