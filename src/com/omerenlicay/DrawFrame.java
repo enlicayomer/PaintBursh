@@ -30,6 +30,8 @@ public class DrawFrame extends JFrame {
     private JButton redo; // button to redo an undo
     private JButton clear; // button to clear panel
     private JButton rect;
+    private JButton oval;
+    private JButton line;
     private JComboBox colors; //combobox with color options
 
     //array of strings containing color options for JComboBox colors
@@ -73,6 +75,8 @@ public class DrawFrame extends JFrame {
         clear = new JButton("Temizle");
         clear.setIcon(clearico);
         rect = new JButton("rect");
+        oval = new JButton("oval");
+        line = new JButton("line");
 
         //create comboboxes
         colors = new JComboBox(colorOptions);
@@ -94,9 +98,12 @@ public class DrawFrame extends JFrame {
         widgetJPanel.add(redo);
         widgetJPanel.add(clear);
         widgetJPanel.add(colors);
-        widgetJPanel.add(shapes);
+       // widgetJPanel.add(shapes);
         widgetJPanel.add(filled);
         widgetJPanel.add(rect);
+        widgetJPanel.add(oval);
+        widgetJPanel.add(line);
+
         // add widgetJPanel to widgetPadder
         widgetPadder.add(widgetJPanel);
 
@@ -110,6 +117,8 @@ public class DrawFrame extends JFrame {
         redo.addActionListener(buttonHandler);
         clear.addActionListener(buttonHandler);
         rect.addActionListener(buttonHandler);
+        oval.addActionListener(buttonHandler);
+        line.addActionListener(buttonHandler);
 
         //create handlers for combobox and checkbox
         ItemListenerHandler handler = new ItemListenerHandler();
@@ -138,6 +147,12 @@ public class DrawFrame extends JFrame {
                 panel.clearDrawing();
             } else if (event.getActionCommand().equals("rect")) {
                 panel.setCurrentShapeType(1);
+
+            } else if (event.getActionCommand().equals("oval")) {
+                panel.setCurrentShapeType(2);
+
+            } else if (event.getActionCommand().equals("line")) {
+                panel.setCurrentShapeType(0);
 
             }
 
