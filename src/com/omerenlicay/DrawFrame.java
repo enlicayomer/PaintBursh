@@ -87,7 +87,7 @@ public class DrawFrame extends JFrame {
 
         //JPanel object, widgetJPanel, with grid layout for widgets
         widgetJPanel = new JPanel();
-        widgetJPanel.setLayout(new GridLayout(2, 6, 10, 10)); //sets padding between widgets in gridlayout
+        widgetJPanel.setLayout(new GridLayout(1, 6, 10, 10)); //sets padding between widgets in gridlayout
 
         //JPanel object, widgetPadder, with flowlayout to encapsulate and pad the widgetJPanel
         widgetPadder = new JPanel();
@@ -127,7 +127,7 @@ public class DrawFrame extends JFrame {
         filled.addItemListener(handler);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(750, 600);
+        setSize(980, 600);
         setVisible(true);
 
     } // end DrawFrame constructor
